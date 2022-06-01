@@ -23,6 +23,7 @@ const checkAnswer = () => {
     const keyButton = document.getElementById(letterSelected);
       if(letter === letterSelected) {
         keyButton.classList.remove("wrong-position");
+        keyButton.classList.add("correct");
         letterBoard[index].classList.add("correct");
         totalCorrect++;
       } else if(secretword.includes(letterSelected)) {
