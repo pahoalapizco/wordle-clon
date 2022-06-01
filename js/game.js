@@ -19,13 +19,18 @@ const checkAnswer = () => {
 
   for (let index = 0; index < MAX_LETTERS; index++) {
     const letter = secretword[index];
-      if(letter === currentResponse[index]) {
+    const letterSelected = currentResponse[index]
+    const keyButton = document.getElementById(letterSelected);
+      if(letter === letterSelected) {
+        keyButton.classList.remove("wrong-position");
         letterBoard[index].classList.add("correct");
         totalCorrect++;
-      } else if(currentResponse.includes(letter)) {
+      } else if(secretword.includes(letterSelected)) {
         letterBoard[index].classList.add("wrong-position");
+        keyButton.classList.add("wrong-position");
       } else {
         letterBoard[index].classList.add("incorrect");
+        keyButton.classList.add("incorrect");
       }
   }
 
