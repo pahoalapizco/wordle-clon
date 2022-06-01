@@ -3,7 +3,7 @@ const keyboard = document.getElementById("keyboard");
 
 const keyboardLetters = [
   ["Q", "W", "E", "R","T", "Y", "U", "I","O", "P"],
-  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+  ["A", "S", "D", "F", "G", "H", "J", "K", "L", "Ñ"],
   ["ENTER","Z","X","C","V","B","N","M","DELETE"],
 ];
 
@@ -18,10 +18,10 @@ keyboardLetters.forEach(row => {
     button.innerText = letter;
     switch (letter) {
       case "ENTER":
-        button.setAttribute("onclick", "send");
+        button.setAttribute("onclick", "send()");
         break;
       case "DELETE":
-        button.setAttribute("onclick", "delete");
+        button.setAttribute("onclick", "backspace()");
         button.innerText = "";
         button.innerHTML = `<span> <i class="fa-solid fa-delete-left"></i> </span>`
         break;
@@ -42,7 +42,8 @@ for(let row = 0; row < 6; row++) {
 
   for(let col = 0; col < 5; col++) {
     const colBoard = document.createElement("div");
-    colBoard.classList.add("letter");
+    colBoard.classList.add(`letter`);
+    colBoard.classList.add(`letter-row-${row}`);
     rowBoard.append(colBoard);
   }
   board.append(rowBoard);
